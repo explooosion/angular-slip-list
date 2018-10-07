@@ -1,10 +1,10 @@
 # Angular Slip List
 
-一個清單列表刪除具有視覺效果的組件。
+A list with slip animation when deleting.
 
 ## Design
 
-靈感在自 [UI Movement](https://uimovement.com) 的 [Delete Message](https://uimovement.com/ui/6311/delete-message/)。
+Inspired by [UI Movement](https://uimovement.com) - [Delete Message](https://uimovement.com/ui/6311/delete-message/)。
 
 ## Installation
 
