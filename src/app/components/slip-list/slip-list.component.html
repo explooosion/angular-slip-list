@@ -1,5 +1,5 @@
 <ul class="slip-list">
-  <li class="list" [id]="list.name" [ngClass]="{ select : list.select }" *ngFor="let list of lists ; trackBy:trackByFn">
+  <li class="list" [id]="list.name" [ngClass]="{ select : list.select }" *ngFor="let list of lists">
     <div class="list-view" (click)="onSelect(list)">
       <div class="list-row">
         <div class="list-name">{{ list.name }}</div>
