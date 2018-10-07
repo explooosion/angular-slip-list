@@ -1,0 +1,12 @@
+<ul class="slip-list">
+  <li class="list" [id]="list.name" [ngClass]="{ select : list.select }" *ngFor="let list of lists ; trackBy:trackByFn">
+    <div class="list-view" (click)="onSelect(list)">
+      <div class="list-row">
+        <div class="list-name">{{ list.name }}</div>
+        <div class="list-time">{{ list.time }}</div>
+      </div>
+      <div class="list-message">{{ list.message }}</div>
+    </div>
+    <a class="list-delete" href="#" (click)="onDelete(list)"><fa-icon [icon]="faTrashAlt" size="2x"></fa-icon></a>
+  </li>
+</ul>
