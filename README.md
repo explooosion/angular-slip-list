@@ -6,6 +6,8 @@ A list with slip animation when deleting.
 
 Inspired by [UI Movement](https://uimovement.com) - [Delete Message](https://uimovement.com/ui/6311/delete-message/)。
 
+👉 [DEMO](http://robby570.tw/angular-slip-list)
+
 ## Installation
 
 ```bash
