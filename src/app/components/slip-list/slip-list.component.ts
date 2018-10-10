@@ -11,6 +11,8 @@ import List from '../../models/list';
 export class SlipListComponent implements OnInit {
 
   public faTrashAlt = faTrashAlt;
+  public undo: Boolean = false;
+  public undoLock: Boolean = false;
 
   @Input() public lists: Array<List>;
 
@@ -28,13 +30,46 @@ export class SlipListComponent implements OnInit {
 
   public onDelete(list: List): void {
 
+    const view: any = document.querySelector(`#${list.name} .list-view`);
+    const undo: any = document.querySelector(`#${list.name} .list-undo`);
+
     // scale
-    const node: any = document.querySelector(`#${list.name} .list-view`);
-    node.classList.add('delete');
+    view.classList.add('delete');
+
+    // undo
+    setTimeout(() => undo.classList.add('active'), 800);
 
     // disappear
-    setTimeout(() => document.getElementById(list.name).style.height = '0', 1000);
-    setTimeout(() => this.delete.emit(list), 1500);
+    setTimeout(() => {
+      this.undoLock = true;
+      // tslint:disable-next-line:curly
+      if (!this.undo) document.getElementById(list.name).style.height = '0';
+    }, 1800);
 
+    // deleting
+    setTimeout(() => {
+      // tslint:disable-next-line:curly
+      if (!this.undo) this.delete.emit(list);
+      this.undo = false;
+      this.undoLock = false;
+    }, 2200);
+  }
+
+  public onUndo(list: List): void {
+
+    // tslint:disable-next-line:curly
+    if (this.undoLock) return;
+
+    this.undo = true;
+
+    const view: any = document.querySelector(`#${list.name} .list-view`);
+    const undo: any = document.querySelector(`#${list.name} .list-undo`);
+
+    view.classList.remove('delete');
+    undo.classList.remove('active');
+
+    document.getElementById(list.name).classList.remove('select');
+
+    this.update.emit(list);
   }
 }

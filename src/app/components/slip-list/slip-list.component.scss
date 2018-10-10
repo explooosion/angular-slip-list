@@ -15,9 +15,9 @@
     width: inherit;
     height: 80px;
     background-color: #ff1c57;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.4s ease-in-out;
     
-    &.select {
+    &.select {  
       .list-view {
         left: -80px;
 
@@ -73,10 +73,9 @@
 
     .list-delete {
       position: absolute;
-      top: 0;
+      top: 25px;
       right: 0;
       display: flex;
-      align-items: center;
       justify-content: center;
       width: 80px;
       height: inherit;
@@ -84,32 +83,55 @@
       text-decoration: none;
       color: #fff;
     }
+
+    .list-undo {
+      position: absolute;
+      top: 35px;
+      left: 15px;
+      font-size: 0.7rem;
+      color: rgba(#eee , 0.7);
+      opacity: 0;
+      transition: all 0.3s ease-out;
+
+      &.active {
+        top: 30px;
+        opacity: 1;
+      }
+
+      .list-undo-btn {
+        margin-left: 10px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+      }
+    }
   }
 }
 
 .delete {
-  animation: delete 1.5s ease-out 0s 1;
+  animation: delete 2.4s ease-out 0s 1;
 }
 
 @keyframes delete {
-  15% {
+  10% {
     left: 5px;
     transform: rotate(-5deg) scale(0.4);
   }
 
-  20% {
+  15% {
     left: 5px;
     transform: rotate(-5deg) scale(0.4);
     opacity: 1;
   }
   
-  45% {
+  30% {
     top: -10px;
     left: 130px;
     transform: rotate(0deg) scale(0.1);
   }
 
-  50% {
+  35% {
     top: -10px;
     left: 130px;
     opacity: 0;

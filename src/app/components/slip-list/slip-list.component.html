@@ -7,6 +7,12 @@
       </div>
       <div class="list-message">{{ list.message }}</div>
     </div>
-    <a class="list-delete" href="#" (click)="onDelete(list)"><fa-icon [icon]="faTrashAlt" size="2x"></fa-icon></a>
+    <div class="list-undo">
+      Your message has been deleted.
+      <a class="list-undo-btn" href="#" (click)="onUndo(list)">Undo</a>
+    </div>
+    <a class="list-delete" href="#" (click)="onDelete(list)">
+      <fa-icon [icon]="faTrashAlt" size="2x"></fa-icon>
+    </a>
   </li>
 </ul>
