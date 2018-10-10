@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/robbymac/Desktop/Robby/Project/Angular/angular-slip-list/src/styles.scss */"./src/styles.scss");
+module.exports = __webpack_require__(/*! F:\Angular\angular-slip-list\src\styles.scss */"./src/styles.scss");
 
 
 /***/ })
