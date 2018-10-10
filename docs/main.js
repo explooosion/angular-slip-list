@@ -162,7 +162,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"slip-list\">\r\n  <li class=\"list\" [id]=\"list.name\" [ngClass]=\"{ select : list.select }\" *ngFor=\"let list of lists\">\r\n    <div class=\"list-view\" (click)=\"onSelect(list)\">\r\n      <div class=\"list-row\">\r\n        <div class=\"list-name\">{{ list.name }}</div>\r\n        <div class=\"list-time\">{{ list.time }}</div>\r\n      </div>\r\n      <div class=\"list-message\">{{ list.message }}</div>\r\n    </div>\r\n    <a class=\"list-delete\" href=\"#\" (click)=\"onDelete(list)\"><fa-icon [icon]=\"faTrashAlt\" size=\"2x\"></fa-icon></a>\r\n  </li>\r\n</ul>\r\n"
+module.exports = "<ul class=\"slip-list\">\r\n  <li class=\"list\" [id]=\"list.name\" [ngClass]=\"{ select : list.select }\" *ngFor=\"let list of lists\">\r\n    <div class=\"list-view\" (click)=\"onSelect(list)\">\r\n      <div class=\"list-row\">\r\n        <div class=\"list-name\">{{ list.name }}</div>\r\n        <div class=\"list-time\">{{ list.time }}</div>\r\n      </div>\r\n      <div class=\"list-message\">{{ list.message }}</div>\r\n    </div>\r\n    <div class=\"list-undo\">\r\n      Your message has been deleted.\r\n      <a class=\"list-undo-btn\" href=\"#\" (click)=\"onUndo(list)\">Undo</a>\r\n    </div>\r\n    <a class=\"list-delete\" href=\"#\" (click)=\"onDelete(list)\">\r\n      <fa-icon [icon]=\"faTrashAlt\" size=\"2x\"></fa-icon>\r\n    </a>\r\n  </li>\r\n</ul>"
 
 /***/ }),
 
@@ -173,7 +173,7 @@ module.exports = "<ul class=\"slip-list\">\r\n  <li class=\"list\" [id]=\"list.n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".slip-list {\n  overflow: hidden;\n  margin: 0;\n  padding: 0;\n  width: 350px;\n  min-height: 30px;\n  font-size: 1rem;\n  font-family: 'Microsoft JhengHei', sans-serif;\n  border: 8px solid #444;\n  border-radius: 1rem;\n  list-style: none; }\n  .slip-list .list {\n    position: relative;\n    width: inherit;\n    height: 80px;\n    background-color: #ff1c57;\n    transition: all 0.5s ease-in-out; }\n  .slip-list .list.select .list-view {\n      left: -80px; }\n  .slip-list .list.select .list-view .list-time {\n        opacity: 0;\n        transition: all 0.4s ease; }\n  .slip-list .list .list-view {\n      overflow: hidden;\n      position: absolute;\n      top: 0;\n      left: 0;\n      padding: 1rem;\n      width: calc(100% - 2rem);\n      height: 50px;\n      background-color: #fff;\n      z-index: 1;\n      transition: all 0.4s ease-out; }\n  .slip-list .list .list-view:hover {\n        background-color: #fafafa; }\n  .slip-list .list .list-view .list-row {\n        display: flex;\n        justify-content: space-between;\n        margin: 0.2rem 0; }\n  .slip-list .list .list-view .list-row .list-name {\n          font-weight: bold; }\n  .slip-list .list .list-view .list-row .list-time {\n          font-size: 0.8rem;\n          color: #ccc; }\n  .slip-list .list .list-view .list-message {\n        overflow: hidden;\n        width: 80%;\n        font-size: 0.9rem;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n        color: #999;\n        cursor: default;\n        opacity: 1; }\n  .slip-list .list .list-delete {\n      position: absolute;\n      top: 0;\n      right: 0;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 80px;\n      height: inherit;\n      text-align: center;\n      text-decoration: none;\n      color: #fff; }\n  .delete {\n  -webkit-animation: delete 1.5s ease-out 0s 1;\n          animation: delete 1.5s ease-out 0s 1; }\n  @-webkit-keyframes delete {\n  15% {\n    left: 5px;\n    -webkit-transform: rotate(-5deg) scale(0.4);\n            transform: rotate(-5deg) scale(0.4); }\n  20% {\n    left: 5px;\n    -webkit-transform: rotate(-5deg) scale(0.4);\n            transform: rotate(-5deg) scale(0.4);\n    opacity: 1; }\n  45% {\n    top: -10px;\n    left: 130px;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); }\n  50% {\n    top: -10px;\n    left: 130px;\n    opacity: 0;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); }\n  100% {\n    top: -10px;\n    left: 130px;\n    opacity: 0;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); } }\n  @keyframes delete {\n  15% {\n    left: 5px;\n    -webkit-transform: rotate(-5deg) scale(0.4);\n            transform: rotate(-5deg) scale(0.4); }\n  20% {\n    left: 5px;\n    -webkit-transform: rotate(-5deg) scale(0.4);\n            transform: rotate(-5deg) scale(0.4);\n    opacity: 1; }\n  45% {\n    top: -10px;\n    left: 130px;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); }\n  50% {\n    top: -10px;\n    left: 130px;\n    opacity: 0;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); }\n  100% {\n    top: -10px;\n    left: 130px;\n    opacity: 0;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); } }\n"
+module.exports = ".slip-list {\n  overflow: hidden;\n  margin: 0;\n  padding: 0;\n  width: 350px;\n  min-height: 30px;\n  font-size: 1rem;\n  font-family: 'Microsoft JhengHei', sans-serif;\n  border: 8px solid #444;\n  border-radius: 1rem;\n  list-style: none; }\n  .slip-list .list {\n    position: relative;\n    width: inherit;\n    height: 80px;\n    background-color: #ff1c57;\n    transition: all 0.4s ease-in-out; }\n  .slip-list .list.select .list-view {\n      left: -80px;\n      transition: all 0.4s ease-in-out; }\n  .slip-list .list.select .list-view .list-time {\n        opacity: 0;\n        transition: all 0.4s ease; }\n  .slip-list .list .list-view {\n      overflow: hidden;\n      position: absolute;\n      top: 0;\n      left: 0;\n      padding: 1rem;\n      width: calc(100% - 2rem);\n      height: 50px;\n      background-color: #fff;\n      z-index: 1;\n      transition: all 0.4s ease-out; }\n  .slip-list .list .list-view:hover {\n        background-color: #fafafa; }\n  .slip-list .list .list-view .list-row {\n        display: flex;\n        justify-content: space-between;\n        margin: 0.2rem 0; }\n  .slip-list .list .list-view .list-row .list-name {\n          font-weight: bold; }\n  .slip-list .list .list-view .list-row .list-time {\n          font-size: 0.8rem;\n          color: #ccc; }\n  .slip-list .list .list-view .list-message {\n        overflow: hidden;\n        width: 80%;\n        font-size: 0.9rem;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n        color: #999;\n        cursor: default;\n        opacity: 1; }\n  .slip-list .list .list-delete {\n      position: absolute;\n      top: 25px;\n      right: 0;\n      display: flex;\n      justify-content: center;\n      width: 80px;\n      height: inherit;\n      text-align: center;\n      text-decoration: none;\n      color: #fff; }\n  .slip-list .list .list-undo {\n      position: absolute;\n      top: 35px;\n      left: 15px;\n      font-size: 0.7rem;\n      color: rgba(238, 238, 238, 0.7);\n      opacity: 0;\n      transition: all 0.3s ease-out; }\n  .slip-list .list .list-undo.active {\n        top: 30px;\n        opacity: 1; }\n  .slip-list .list .list-undo .list-undo-btn {\n        margin-left: 10px;\n        font-size: 0.9rem;\n        font-weight: bold;\n        text-decoration: none;\n        color: #fff; }\n  .delete {\n  -webkit-animation: delete 2.4s ease-out 0s 1;\n          animation: delete 2.4s ease-out 0s 1; }\n  @-webkit-keyframes delete {\n  10% {\n    left: 5px;\n    -webkit-transform: rotate(-5deg) scale(0.4);\n            transform: rotate(-5deg) scale(0.4); }\n  15% {\n    left: 5px;\n    -webkit-transform: rotate(-5deg) scale(0.4);\n            transform: rotate(-5deg) scale(0.4);\n    opacity: 1; }\n  30% {\n    top: -10px;\n    left: 130px;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); }\n  35% {\n    top: -10px;\n    left: 130px;\n    opacity: 0;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); }\n  100% {\n    top: -10px;\n    left: 130px;\n    opacity: 0;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); } }\n  @keyframes delete {\n  10% {\n    left: 5px;\n    -webkit-transform: rotate(-5deg) scale(0.4);\n            transform: rotate(-5deg) scale(0.4); }\n  15% {\n    left: 5px;\n    -webkit-transform: rotate(-5deg) scale(0.4);\n            transform: rotate(-5deg) scale(0.4);\n    opacity: 1; }\n  30% {\n    top: -10px;\n    left: 130px;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); }\n  35% {\n    top: -10px;\n    left: 130px;\n    opacity: 0;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); }\n  100% {\n    top: -10px;\n    left: 130px;\n    opacity: 0;\n    -webkit-transform: rotate(0deg) scale(0.1);\n            transform: rotate(0deg) scale(0.1); } }\n"
 
 /***/ }),
 
@@ -203,6 +203,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var SlipListComponent = /** @class */ (function () {
     function SlipListComponent() {
         this.faTrashAlt = _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTrashAlt"];
+        this.undo = false;
+        this.undoLock = false;
         this.update = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.delete = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
@@ -212,12 +214,39 @@ var SlipListComponent = /** @class */ (function () {
     };
     SlipListComponent.prototype.onDelete = function (list) {
         var _this = this;
+        var view = document.querySelector("#" + list.name + " .list-view");
+        var undo = document.querySelector("#" + list.name + " .list-undo");
         // scale
-        var node = document.querySelector("#" + list.name + " .list-view");
-        node.classList.add('delete');
+        view.classList.add('delete');
+        // undo
+        setTimeout(function () { return undo.classList.add('active'); }, 800);
         // disappear
-        setTimeout(function () { return document.getElementById(list.name).style.height = '0'; }, 1000);
-        setTimeout(function () { return _this.delete.emit(list); }, 1500);
+        setTimeout(function () {
+            _this.undoLock = true;
+            // tslint:disable-next-line:curly
+            if (!_this.undo)
+                document.getElementById(list.name).style.height = '0';
+        }, 1800);
+        // deleting
+        setTimeout(function () {
+            // tslint:disable-next-line:curly
+            if (!_this.undo)
+                _this.delete.emit(list);
+            _this.undo = false;
+            _this.undoLock = false;
+        }, 2200);
+    };
+    SlipListComponent.prototype.onUndo = function (list) {
+        // tslint:disable-next-line:curly
+        if (this.undoLock)
+            return;
+        this.undo = true;
+        var view = document.querySelector("#" + list.name + " .list-view");
+        var undo = document.querySelector("#" + list.name + " .list-undo");
+        view.classList.remove('delete');
+        undo.classList.remove('active');
+        document.getElementById(list.name).classList.remove('select');
+        this.update.emit(list);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
