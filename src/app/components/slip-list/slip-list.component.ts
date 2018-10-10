@@ -30,25 +30,11 @@ export class SlipListComponent implements OnInit {
 
     // scale
     const node: any = document.querySelector(`#${list.name} .list-view`);
-
-    setTimeout(() => {
-      // tslint:disable-next-line
-      node.style.transform = 'rotate(-5deg) scale(0.4)';
-      // tslint:disable-next-line
-      node.style.left = '10px';
-    }, 100);
-
-    setTimeout(() => {
-      // tslint:disable-next-line
-      node.style.transform = 'rotate(0deg) scale(0.1)';
-      // tslint:disable-next-line
-      node.style.left = '150px';
-      node.style.opacity = '0';
-    }, 600);
+    node.classList.add('delete');
 
     // disappear
-    setTimeout(() => document.getElementById(list.name).style.height = '0', 1200);
-    setTimeout(() => this.delete.emit(list), 1400);
+    setTimeout(() => document.getElementById(list.name).style.height = '0', 1000);
+    setTimeout(() => this.delete.emit(list), 1500);
 
   }
 }
